@@ -55,22 +55,14 @@ Once the update goes through, it will show the customer the total cost of their 
 
 
 
-
-
-If this activity took you between 8-10 hours, then you've put enough time into this assignment. Feel free to stop here -- unless you want to take on the next challenge.
-
-
-
-
-
 Challenge #2: Manager View (Next Level)
 
 
 
-Create a new Node application called bamazonManager.js. Running this application will:
+Created a new Node application called bamazonManager.js. Running this application will:
 
 
-List a set of menu options:
+Lists a set of menu options:
 View Products for Sale
 View Low Inventory
 Add to Inventory
@@ -79,3 +71,16 @@ If a manager selects View Products for Sale, the app should list every available
 If a manager selects View Low Inventory, then it should list all items with an inventory count lower than five.
 If a manager selects Add to Inventory, your app should display a prompt that will let the manager "add more" of any item currently in the store.
 If a manager selects Add New Product, it should allow the manager to add a completely new product to the store.
+
+<h2>What npm we used to create this Homework<h2>
+
+
+• Node.js • Inquire NPM Package (https://www.npmjs.com/package/inquirer) • MYSQL NPM Package (https://www.npmjs.com/package/mysql)
+
+<h3>Authors<h3>
+
+Bishop Johnson
+
+Github Link: https://github.com/johnsonbs5
+
+<h1>Enjoy!<h1>
