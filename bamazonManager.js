@@ -7,10 +7,10 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
 
-  // Your username
+  // My username
   user: "root",
 
-  // Your password
+  // My password
   password: "root",
   database: "Bamazon"
 });
@@ -22,9 +22,9 @@ var manageInit = function() {
     {
       type: "list",
       name: "option",
-      message: "What would you like to do, Manager?",
+      message: "What would you like to do, Manager?", //Required as per Homework Instructions for Manager
       choices: [
-        "View Products for Sale",
+        "View Products for Sale", //Listed Choices for Manager
         "View Low Inventory",
         "Add to Inventory",
         "Add New Product"
@@ -32,7 +32,7 @@ var manageInit = function() {
     }
   ]).then(function(answers) {
     if(answers.option === "View Products for Sale") {
-      connection.query("SELECT * FROM products", function(err, res) {
+      connection.query("SELECT * FROM products", function(err, res) { //Selecting from products in SQL Database
         if (err) throw err;
 
         console.log("Available Products:");
@@ -92,10 +92,10 @@ var manageInit = function() {
             }
           }
         ]).then(function(answers) {
-          var itemId = parseFloat(answers.itemId);
+          var itemId = parseFloat(answers.itemId); //parseFloat 
           var quantityAdded = parseFloat(answers.quantityAdded);
 
-          // Update item with stock quantity specified
+          // Update items
           connection.query("UPDATE products SET stock_quantity = stock_quantity + ? WHERE item_id = ?", [quantityAdded, itemId], function(err, res) {
             if (err) throw err;
           });
@@ -107,7 +107,7 @@ var manageInit = function() {
       });
     }  else if (answers.option === "Add New Product") {
       connection.query("SELECT * FROM products", function(err, res) {
-        // Prompt user for information for new product
+        // User input for adding new products including department 
         inquirer.prompt([
           {
             type: "input",
@@ -142,7 +142,7 @@ var manageInit = function() {
                 return false;
               }
             }
-          }
+          } //then function for answer
         ]).then(function(answers) {
           var productName = answers.productName;
           var departmentName = answers.departmentName;
@@ -163,5 +163,5 @@ var manageInit = function() {
   });
 };
 
-// Here we are initializing 
+// Final Manage init() 
 manageInit();

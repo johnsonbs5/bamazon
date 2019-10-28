@@ -48,29 +48,25 @@ function promptUserPurchase() {
 			filter: Number
 		}
 	]).then(function(input) {
-		// console.log('Customer has selected: \n    item_id = '  + input.item_id + '\n    quantity = ' + input.quantity);
-
 		var item = input.item_id;
 		var quantity = input.quantity;
 
-		// Query db to confirm that the given item ID exists in the desired quantity
+		// Query db for item quantity
 		var queryStr = 'SELECT * FROM products WHERE ?';
 
 		connection.query(queryStr, {item_id: item}, function(err, data) {
 			if (err) throw err;
 
-			// If the user has selected an invalid item ID, data attay will be empty
 			// console.log('data = ' + JSON.stringify(data));
 
 			if (data.length === 0) {
-				console.log('ERROR: Invalid Item ID. Please select a valid Item ID.');
+				console.log('ERROR: Invalid Item ID. Please select a valid Item ID.'); //Letting user know about invalid quantity
 				displayInventory();
 
 			} else {
 				var productData = data[0];
 
 				// console.log('productData = ' + JSON.stringify(productData));
-				// console.log('productData.stock_quantity = ' + productData.stock_quantity);
 
 				// If the quantity requested by the user is in stock
 				if (quantity <= productData.stock_quantity) {
@@ -88,7 +84,7 @@ function promptUserPurchase() {
 						console.log('Thank you for shopping with us!');
 						console.log("\n---------------------------------------------------------------------\n");
 
-						// End the database connection
+						// End db connection
 						connection.end();
 					})
 				} else {
@@ -103,14 +99,14 @@ function promptUserPurchase() {
 	})
 }
 
-// displayInventory will retrieve the current inventory from the database and output it to the console
+// output inventory
 function displayInventory() {
 	// console.log('___ENTER displayInventory___');
 
 	// Construct the db query string
 	queryStr = 'SELECT * FROM products';
 
-	// Make the db query
+	// connection for creating db query
 	connection.query(queryStr, function(err, data) {
 		if (err) throw err;
 
