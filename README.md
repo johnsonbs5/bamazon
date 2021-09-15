@@ -1,10 +1,10 @@
 <h1>Overview</h1>
 
-In this activity, we are creating an Amazon-like storefront with the MySQL skills I learned this unit. The app will take in orders from customers and deplete stock from the store's inventory. 
+I am creating an Amazon-like storefront with the MySQL skills I learned. The app will take in orders from customers and deplete stock from the store's inventory. 
 
-We created 2 JS files for both the Customer and the Manager as well!
+I created 2 JS files for both the Customer and the Manager as well!
 <br>
-Try out our code for yourself or take a look at the images folder to see screenshots of the process.
+Try out my code for yourself or take a look at the images folder to see screenshots of the process.
 
 <h1>What challanges we included in this Homework</h2>
 
